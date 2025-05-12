@@ -1,0 +1,53 @@
+\chapter{Introduction}
+
+\section{Overview of Co-Design for AI Algorithms}
+%\addcontentsline{toc}{section}{Overview of Co-Design for AI Algorithms}
+
+Co-design for AI algorithms represents a multidisciplinary methodology in which algorithmic development and system architecture evolve in tandem to meet stringent performance, resource, and application requirements. Unlike traditional approaches—where AI models are designed independently of deployment constraints and subsequently shoehorned into target platforms—co-design emphasizes iterative collaboration between algorithm designers, hardware engineers, and software architects. This synergy ensures that AI solutions achieve optimal accuracy, latency, power efficiency, and reliability within their intended operational environments.
+
+In recent years, the rapid proliferation of edge computing, embedded systems, and Internet of Things (IoT) devices has underscored the need for co-design. AI models once trained and executed on cloud servers must now operate on devices with limited memory, compute horsepower, and energy budgets. Co-design methodologies address this challenge by jointly optimizing model architectures (e.g., quantization, pruning, layer fusion) and hardware/software execution pipelines (e.g., specialized accelerators, real-time operating systems, communication protocols). The result is AI functionality that is both performant and resource-aware, unlocking new applications in domains ranging from autonomous vehicles and industrial automation to wearable health monitors and smart infrastructure.
+
+\section{Project Context}
+%\addcontentsline{toc}{section}{Project Context}
+
+This project arises at the intersection of two accelerating trends: the expansion of AI-enabled devices at the network edge, and the growing complexity of AI algorithms that demand greater computational resources. Traditional “cloud-first” strategies face limitations in scenarios requiring deterministic response times, offline operation, or stringent data-privacy guarantees. For example, industrial control systems in manufacturing plants often cannot tolerate network latency or intermittent connectivity; medical wearables processing patient data locally must ensure confidentiality without constant cloud links.
+
+Against this backdrop, co-design offers a pathway to embed advanced AI capabilities directly within constrained hardware. By aligning neural-network topology choices with microcontroller instruction sets, or by tailoring inference engines to leverage specific memory hierarchies, co-design can reduce end-to-end latency by orders of magnitude and extend battery life for untethered devices. The proposed project will capitalize on these advantages to create a modular, end-to-end co-design framework that guides AI algorithm selection, hardware mapping, and system integration within a unified development flow.
+
+Key drivers for this project include:
+
+\begin{itemize}
+    \item \textbf{Real-Time Performance Needs:} Applications such as autonomous navigation or industrial fault detection demand sub-millisecond inference and deterministic execution.
+    \item \textbf{Resource Constraints:} Many embedded platforms offer only kilobytes of RAM, megahertz-level clock speeds, and limited power budgets—necessitating aggressive model compression and hardware-aware scheduling.
+    \item \textbf{Security and Privacy:} On-device processing reduces attack surfaces and avoids transmitting sensitive data externally, but requires careful design to prevent vulnerabilities in local execution environments.
+    \item \textbf{Scalability and Maintainability:} As model architectures evolve, system designers must rapidly retarget AI workloads to new hardware revisions and feature sets without rewriting large portions of the software stack.
+\end{itemize}
+
+\section{Precise Domain Specification}
+%\addcontentsline{toc}{section}{Precise Domain Specification}
+
+The project will focus specifically on the co-design of deep-learning inference algorithms for real-time, resource-constrained embedded systems in IoT applications. Within this domain, three interlocking sub-areas will be addressed:
+
+\begin{enumerate}
+    \item \textbf{Model Architecture Optimization:}
+    \begin{itemize}
+        \item \textbf{Quantization \& Pruning:} Investigate techniques for reducing model bit-widths (e.g., 8-bit integer quantization) and eliminating redundant parameters while preserving inference accuracy.
+        \item \textbf{Layer Fusion \& Kernel Tuning:} Explore methods to merge computational kernels (e.g., convolution + activation) and generate hardware-optimized code paths that exploit target instruction sets.
+    \end{itemize}
+    
+    \item \textbf{Embedded Inference Engine Design:}
+    \begin{itemize}
+        \item \textbf{Hardware Abstraction Layer (HAL):} Define a minimal, portable HAL that exposes compute, memory, and I/O primitives for diverse microcontroller families (e.g., ARM Cortex-M, ESP32).
+        \item \textbf{Scheduler \& Memory Manager:} Develop a real-time scheduler to allocate compute tasks within strict deadlines, alongside a memory manager that orchestrates buffer reuse and data streaming to maximize cache utilization.
+    \end{itemize}
+
+    \item \textbf{System Integration \& Validation:}
+    \begin{itemize}
+        \item \textbf{Communication Protocols:} Implement lightweight, secure messaging (e.g., MQTT, CoAP) to coordinate AI-inference results with cloud services or edge orchestrators, ensuring synchronization and fault tolerance.
+        \item \textbf{Benchmarking and Profiling:} Establish a suite of representative workloads (e.g., object detection, anomaly classification) to benchmark latency, power consumption, and accuracy trade-offs across hardware variants.
+        \item \textbf{Security Assessment:} Incorporate secure boot, encrypted model storage, and runtime integrity checks to safeguard against tampering or model exfiltration.
+    \end{itemize}
+\end{enumerate}
+
+\noindent
+By narrowing the scope to embedded deep-learning inference for IoT devices, the project will deliver a targeted co-design framework that can be generalized to other AI domains. The framework will include toolchains, reference implementations, and comprehensive documentation—enabling rapid development of AI-enabled IoT solutions that satisfy real-time performance, resource, and security requirements without sacrificing model fidelity.
